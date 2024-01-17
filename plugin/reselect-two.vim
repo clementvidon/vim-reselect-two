@@ -14,14 +14,14 @@
 " selection, alongside with visualmode() and beg position.  Replay them like a
 " macro when the selection is restored.
 
-if exists('g:loaded_reselect_two')
+if exists('s:loaded_reselect_two')
     finish
 endif
-let g:loaded_reselect_two = 1
+let s:loaded_reselect_two = 1
 
-let g:selec_auto_save_disabled = 0
-let g:last_visual_mode = ''
-let g:prev_visual_mode = ''
+let s:selec_auto_save_disabled = 0
+let s:last_visual_mode = ''
+let s:prev_visual_mode = ''
 
 if !exists('b:last_selec_beg')
     let b:last_selec_beg = []
@@ -40,9 +40,9 @@ if !exists('b:prev_selec_end')
 endif
 
 function! SaveSelection()
-    if g:selec_auto_save_disabled == 0
-        let g:prev_visual_mode = g:last_visual_mode
-        let g:last_visual_mode = visualmode()
+    if s:selec_auto_save_disabled == 0
+        let s:prev_visual_mode = s:last_visual_mode
+        let s:last_visual_mode = visualmode()
         if exists('b:last_selec_beg') && exists('b:last_selec_end')
             echo "Selection saved."
             let b:prev_selec_beg = b:last_selec_beg
@@ -54,7 +54,7 @@ function! SaveSelection()
             let b:last_selec_end[2] = strlen(getline(b:last_selec_end[1]))
         endif
     else
-        let g:selec_auto_save_disabled = 0
+        let s:selec_auto_save_disabled = 0
     endif
 endfunction
 
@@ -71,7 +71,7 @@ function! RestoreLastSelection()
         let end_y = b:last_selec_end[1]
         let end_x = b:last_selec_end[2]
 
-        if g:last_visual_mode == "\<C-V>"
+        if s:last_visual_mode == "\<C-V>"
             let height = abs(end_y - beg_y)
             let width = abs(end_x - beg_x)
             if end_y > beg_y && end_x > beg_x " top-l to bot-r = by,bx to ey,ex
@@ -100,7 +100,7 @@ function! RestoreLastSelection()
             execute "normal! \<Esc>v"
             call cursor(end_y, end_x)
         endif
-        let g:selec_auto_save_disabled = 1
+        let s:selec_auto_save_disabled = 1
     endif
 endfunction
 
@@ -111,7 +111,7 @@ function! RestorePrevSelection()
         let end_y = b:prev_selec_end[1]
         let end_x = b:prev_selec_end[2]
 
-        if g:prev_visual_mode == "\<C-V>"
+        if s:prev_visual_mode == "\<C-V>"
             let height = abs(end_y - beg_y)
             let width = abs(end_x - beg_x)
             if end_y > beg_y && end_x > beg_x " top-l to bot-r = by,bx to ey,ex
@@ -140,7 +140,7 @@ function! RestorePrevSelection()
             execute "normal! \<Esc>v"
             call cursor(end_y, end_x)
         endif
-        let g:selec_auto_save_disabled = 1
+        let s:selec_auto_save_disabled = 1
     else
         call RestoreLastSelection()
     endif
