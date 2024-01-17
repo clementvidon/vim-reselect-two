@@ -147,4 +147,4 @@ function! RestorePrevSelection()
 endfunction
 
 noremap gv :call RestoreLastSelection()<CR>
-noremap gb :call RestorePrevSelection()<CR>
+noremap gV :call RestorePrevSelection()<CR>
