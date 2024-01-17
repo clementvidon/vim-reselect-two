@@ -7,6 +7,13 @@
 " Updated: 240117 02:47:02 by clem@spectre
 " Maintainer: Clément Vidon (clemedon)
 
+" TODO Cursor position is not restored when the selection is restored
+" TODO Some visual block selections are not restored correctly
+"
+" PLAN When visual selection start, save all keys pressed until the end of the
+" selection, alongside with visualmode() and beg position.  Replay them like a
+" macro when the selection is restored.
+
 if exists('s:loaded_reselect_two')
     finish
 endif
@@ -32,7 +39,7 @@ if !exists('b:prev_selec_end')
     let b:prev_selec_end = []
 endif
 
-function! s:save_two_last_selections()
+function! SaveSelection()
     if s:selec_auto_save_disabled == 0
         let s:prev_visual_mode = s:last_visual_mode
         let s:last_visual_mode = visualmode()
@@ -51,7 +58,13 @@ function! s:save_two_last_selections()
     endif
 endfunction
 
-function! s:restore_last_selection()
+augroup AutoSaveSelection
+    autocmd!
+    " triggered when ModeChanged from Visual to Normal
+    autocmd ModeChanged [vV\x16]*:[nN\x16]* call SaveSelection()
+augroup END
+
+function! RestoreLastSelection()
     if exists('b:last_selec_beg') && exists('b:last_selec_end')
         let beg_y = b:last_selec_beg[1]
         let beg_x = b:last_selec_beg[2]
@@ -91,7 +104,7 @@ function! s:restore_last_selection()
     endif
 endfunction
 
-function! s:restore_prev_selection()
+function! RestorePrevSelection()
     if exists('b:prev_selec_beg') && exists('b:prev_selec_end')
         let beg_y = b:prev_selec_beg[1]
         let beg_x = b:prev_selec_beg[2]
@@ -129,15 +142,9 @@ function! s:restore_prev_selection()
         endif
         let s:selec_auto_save_disabled = 1
     else
-        call s:restore_last_selection()
+        call RestoreLastSelection()
     endif
 endfunction
 
-augroup AutoSaveSelection
-    autocmd!
-    " ModeChanged from Visual to Normal
-    autocmd ModeChanged [vV\x16]*:[nN\x16]* call s:save_two_last_selections()
-augroup END
-
-noremap gv :call s:restore_last_selection()<CR>
-noremap gV :call s:restore_prev_selection()<CR>
+noremap gv :call RestoreLastSelection()<CR>
+noremap gV :call RestorePrevSelection()<CR>
