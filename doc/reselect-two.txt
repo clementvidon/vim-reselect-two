@@ -5,10 +5,6 @@ License: Same terms as Vim itself (see |license|)
 
 INTRODUCTION                                    *reselect-two*
 
-This plugin extends the capacity of *gv* |reselect-Visual| which allows you to
-restore the last visual selection by making it possible to restore the
-penultimate visual selection.
-
 This plugin allows you to restore, not only the last selection area (like does
 the *gv* |reselect-Visual|) but also the previous one: the penultimate
 selection area (with *gV*).
