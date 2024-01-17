@@ -33,3 +33,14 @@ using **gv** and **gV**.
 * ress **v**, **V**, **<C-V>** or **<C-Q>** to create a 2nd VISUAL Selection.
 * Quit VISUAL mode with **<Esc>**.
 * Switch between the 1st and the 2nd Selection with **gv** and **gV**.
+
+### Dev Notes
+
+  Issue
+  - 240116 Cursor position is not restored when the selection is restored
+  - 240116 Some visual block selections are not restored correctly
+
+  Alternative Solution
+  - 240116 When visual selection start, save all keys pressed until the end of
+    the selection, alongside with visualmode() and beg position.  Replay them
+    like a macro when the selection is restored.
