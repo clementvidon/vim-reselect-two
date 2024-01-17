@@ -1,24 +1,18 @@
 # Reselect Two
 
-## TL;DR
-
-This is a **work in progress** and may have bugs. **Contributions are welcome**!
-
 ## Description
 
-This plugin extends the capacity of **gv** `:h reselect-Visual` which allows you
-to restore the last visual selection by making it possible to **restore the
-penultimate visual selection** with **gV** `:h reselect-two`.
+This plugin allows you to **restore**, not only the **last selection area** (like does the '**gv**' command) but also the previous one: the **penultimate selection area** (with '**gV**'). See `:h reselect-Visual`, `:h reselect-two`.
 
-
-|  Visual Selection |  Visual Reselection                    |
+### Examples
+  
+|  Selection Area   |  Reselection                           |
 | ----------------- | -------------------------------------- |
 |  "`HELL`o world!" |  **gv** -> `HELL`,   **gV** -> `HELL`  |
 |  "hello `WORLD`!" |  **gv** -> `WORLD`,  **gV** -> `HELL`  |
 |  "`HELLO` world!" |  **gv** -> `HELLO`,  **gV** -> `WORLD` |
 
-In the following example we create two selections and alternate from one to the
-other using **gv** and **gV**.
+Here we create two selections and alternate from one to the other using **gv** and **gV**.
 
 ![Vim Reselect Two](./doc-assets/vim-reselect-two.gif)
 
@@ -30,6 +24,10 @@ other using **gv** and **gV**.
 
 * Read the man: `:h reselect-two`
 
+## Contribute
+
+This is a **work in progress** and may have bugs. **Contributions are welcome**!
+
 ## Dev Notes
 
 ### Issue
@@ -38,6 +36,6 @@ other using **gv** and **gV**.
 
 ### Alternative Solution
 
-- 240116 When visual selection start, save all keys pressed until the end of the
+- 240116 When selection area start, save all keys pressed until the end of the
   selection `ModeChanged`, alongside with `visualmode()` and beg position.
   Replay them like a macro when the selection is restored.
