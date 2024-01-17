@@ -1,11 +1,8 @@
 # Reselect Two
 
-### Intro
+### TL;DR
 
-Often frustrated by the impossibility of juggling between the last Selection and
-the one which precedes it.  I missed the possibility of being able to invoke the
-previous Selection regularly enough to end up creating this base.  This work in
-progress is **dirty, buggy, and open to contributions**.
+This **work in progress** is dirty, buggy, and **open to contributions**.
 
 ### Description
 
