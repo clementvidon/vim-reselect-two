@@ -9,14 +9,21 @@ progress is **dirty, buggy, and open to contributions**.
 
 ### Description
 
-In addition to the well known **gv** which reselect the *last VISUAL Selection*, you
-can press **gV** to reselect the *previous VISUAL Selection*, the one which is
-overwritten by **gv** when a new selection is done.
+This plugin extends the capacity of **gv** *reselect-Visual* which allows you to
+restore the last visual selection by making it possible to restore the
+penultimate visual selection.
+
+
+|  Visual Selection |  Visual Reselection                    |
+| ----------------- | -------------------------------------- |
+|  "`HELL`o world!" |  **gv** -> `HELL`,   **gV** -> `HELL`  |
+|  "hello `WORLD`!" |  **gv** -> `WORLD`,  **gV** -> `HELL`  |
+|  "`HELLO` world!" |  **gv** -> `HELLO`,  **gV** -> `WORLD` |
 
 In the example I create two selection, then I alternate from one to the other
 using **gv** and **gV**.
 
-![Vim Reselect Two](./doc/vim-reselect-two.gif)
+![Vim Reselect Two](./doc-assets/vim-reselect-two.gif)
 
 ### Get Started
 
