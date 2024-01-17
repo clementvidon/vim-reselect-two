@@ -11,13 +11,11 @@ penultimate visual selection.
 
 MAPPINGS                                        *reselect-two-mappings*
 
-*gv*            Start Visual mode with the same area as the previous
-                area and the same mode. See |reselect-Visual|
+*gv* Start Visual mode with the same area as the previous area and the same
+mode. See |reselect-Visual|
 
-*gV*            Start Visual mode with the same area as the penultimate
-                area and the same mode.
-
-EXAMPLE
+*gV* Start Visual mode with the same area as the penultimate area and the same
+mode.
 
   Visual Selection          Visual Reselection ~
   "[HELL]o world!"          *gv* -> [HELL],   *gV* -> [HELL]

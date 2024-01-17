@@ -2,13 +2,13 @@
 
 ### TL;DR
 
-This **work in progress** is dirty, buggy, and **open to contributions**.
+This is a **work in progress** and may have bugs. **Contributions are welcome**!
 
 ### Description
 
-This plugin extends the capacity of **gv** *reselect-Visual* which allows you to
-restore the last visual selection by making it possible to restore the
-penultimate visual selection.
+This plugin extends the capacity of **gv** `:h reselect-Visual` which allows you
+to restore the last visual selection by making it possible to **restore the
+penultimate visual selection** with **gV** `:h reselect-two`.
 
 
 |  Visual Selection |  Visual Reselection                    |
@@ -17,30 +17,27 @@ penultimate visual selection.
 |  "hello `WORLD`!" |  **gv** -> `WORLD`,  **gV** -> `HELL`  |
 |  "`HELLO` world!" |  **gv** -> `HELLO`,  **gV** -> `WORLD` |
 
-In the example I create two selection, then I alternate from one to the other
-using **gv** and **gV**.
+In the following example we create two selections and alternate from one to the
+other using **gv** and **gV**.
 
 ![Vim Reselect Two](./doc-assets/vim-reselect-two.gif)
 
 ### Get Started
 
-* Install with *vim-plug* or any other plugin manager:
+* Install with *vim-plug* or any other plugin manager.
 
   `Plug 'clemedon/vim-reselect-two'`
 
-* Press **v**, **V**, **<C-V>** or **<C-Q>** to create a 1st VISUAL Selection.
-* Quit VISUAL mode with **<Esc>**.
-* ress **v**, **V**, **<C-V>** or **<C-Q>** to create a 2nd VISUAL Selection.
-* Quit VISUAL mode with **<Esc>**.
-* Switch between the 1st and the 2nd Selection with **gv** and **gV**.
+* Read the man: `:h reselect-two`
 
 ### Dev Notes
 
-  Issue
-  - 240116 Cursor position is not restored when the selection is restored
-  - 240116 Some visual block selections are not restored correctly
+#### Issue
 
-  Alternative Solution
-  - 240116 When visual selection start, save all keys pressed until the end of
-    the selection, alongside with visualmode() and beg position.  Replay them
-    like a macro when the selection is restored.
+- 240116 **Cursor position** should be restored when the selection is restored.
+
+#### Alternative Solution
+
+- 240116 When visual selection start, save all keys pressed until the end of the
+  selection `ModeChanged`, alongside with `visualmode()` and beg position.
+  Replay them like a macro when the selection is restored.
