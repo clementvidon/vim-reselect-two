@@ -1,21 +1,19 @@
-*reselect-two.txt*  Plugin to restore up to the last two visual selections
+*reselect-two.txt*  Plugin to restore the penultimate selection area
 
 Author:  Clément Vidon <https://github.com/clemedon/>
 License: Same terms as Vim itself (see |license|)
 
 INTRODUCTION                                    *reselect-two*
 
-This plugin extends the capacity of *gv* |reselect-Visual| which allows you to
-restore the last visual selection by making it possible to restore the
-penultimate visual selection.
+This plugin extends the capacity of *gv* |reselect-Visual| which allows you to restore the last visual selection by making it possible to restore the penultimate visual selection.
+
+This plugin allows you to restore, not only the last selection area (like does the *gv* |reselect-Visual|) but also the previous one: the penultimate selection area (with *gV*).
 
 MAPPINGS                                        *reselect-two-mappings*
 
-*gv* Start Visual mode with the same area as the previous area and the same
-mode. See |reselect-Visual|
+*gv* Start Visual mode with the same area as the previous area and the same mode. See |reselect-Visual|
 
-*gV* Start Visual mode with the same area as the penultimate area and the same
-mode.
+*gV* Start Visual mode with the same area as the penultimate area and the same mode.
 
   Visual Selection          Visual Reselection ~
   "[HELL]o world!"          *gv* -> [HELL],   *gV* -> [HELL]
