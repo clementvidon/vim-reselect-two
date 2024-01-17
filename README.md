@@ -1,10 +1,10 @@
 # Reselect Two
 
-### TL;DR
+## TL;DR
 
 This is a **work in progress** and may have bugs. **Contributions are welcome**!
 
-### Description
+## Description
 
 This plugin extends the capacity of **gv** `:h reselect-Visual` which allows you
 to restore the last visual selection by making it possible to **restore the
@@ -22,7 +22,7 @@ other using **gv** and **gV**.
 
 ![Vim Reselect Two](./doc-assets/vim-reselect-two.gif)
 
-### Get Started
+## Get Started
 
 * Install with *vim-plug* or any other plugin manager.
 
@@ -30,13 +30,13 @@ other using **gv** and **gV**.
 
 * Read the man: `:h reselect-two`
 
-### Dev Notes
+## Dev Notes
 
-#### Issue
+### Issue
 
 - 240116 **Cursor position** should be restored when the selection is restored.
 
-#### Alternative Solution
+### Alternative Solution
 
 - 240116 When visual selection start, save all keys pressed until the end of the
   selection `ModeChanged`, alongside with `visualmode()` and beg position.
