@@ -13,6 +13,11 @@ In addition to the well known **gv** which reselect the *last VISUAL Selection*,
 can press **gV** to reselect the *previous VISUAL Selection*, the one which is
 overwritten by **gv** when a new selection is done.
 
+In the example I create two selection, then I alternate from one to the other
+using **gv** and **gV**.
+
+![Vim Reselect Two](./doc/vim-reselect-two.gif)
+
 ### Get Started
 
 * Install with *vim-plug* or any other plugin manager:
