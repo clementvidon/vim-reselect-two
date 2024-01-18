@@ -7,13 +7,6 @@
 " Updated: 240117 02:47:02 by clem@spectre
 " Maintainer: Clément Vidon (clemedon)
 
-" TODO Cursor position is not restored when the selection is restored
-" TODO Some visual block selections are not restored correctly
-"
-" PLAN When visual selection start, save all keys pressed until the end of the
-" selection, alongside with visualmode() and beg position.  Replay them like a
-" macro when the selection is restored.
-
 if exists('s:loaded_reselect_two')
     finish
 endif
